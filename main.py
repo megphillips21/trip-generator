@@ -30,11 +30,13 @@ def welcome ():
 
 
 def destination_random ():
-    destination_result= random.choice(destinations_list)
+    destination_result = random.choice(destinations_list)
+    print(destination_result)
     return destination_result
+    
 
 def transportation_random ():
-    transportation_result= random.choice(transporations_list)
+    transportation_result = random.choice(transporations_list)
     return transportation_result
 
 def mammoth_attract_random ():
@@ -77,15 +79,96 @@ def leevining_food_random():
     leevining_food_result = random.choice(leevining_rests_list)
     return leevining_food_result
 
+def get_destination():
+    destination_result = destination_random()
+    dest_answer = input(f"How would you like to spend the day in {destination_result}? Enter y/n?  ")
+    if dest_answer == "y":
+        print("Great, Let's find something to do!")
+    elif dest_answer == "n":
+        print("Too Bad! We can pick another..")
+        get_destination()
+
+def get_attraction(destination_result):
+    if destination_result == "Mammoth":
+      mammoth_get_attract()
+    elif destination_result == "Bishop":
+        bish_get_attract()
+    elif destination_result == "Bridgeport":
+        bridgeport_get_attract()
+    elif destination_result == "Lee Vining":
+        leevining_get_attract()
+    elif destination_result == "Lone Pine":
+        lone_get_attract()
+   
+    
+def mammoth_get_attract():
+    mammoth_attraction = mammoth_attract_random()
+    mammoth_attraction_answer = input(f"How about ....{mammoth_attraction}? Enter y/n?  ")
+    if mammoth_attraction_answer == "y":
+        print("YAY! Let's find somewhere to eat!")
+    elif mammoth_attraction_answer == "n":
+        print("Alright,it's your trip. Let's try another.")
+        mammoth_get_attract()
+
+def bish_get_attract():
+    bishop_attraction = bishop_attract_random()
+    bishop_attraction_answer = input(f"How about ....{bishop_attraction}? Enter  y/n?  ")
+    if bishop_attraction_answer == "y":
+        print("YAY! Let's find somewhere to eat!")
+    elif bishop_attraction_answer == "n":
+        print("Alright,it's your trip. Let's try another.")
+        bish_get_attract()
+
+def bridgeport_get_attract():
+    bridgeport_attraction = bridgeport_attract_random()
+    bridgeport_attraction_answer = input(f"How about ....{bridgeport_attraction}? Enter y/n?  ")
+    if bridgeport_attraction_answer == "y":
+        print("YAY! Let's find somewhere to eat!")
+    elif bridgeport_attraction_answer == "n":
+        print("Alright,it's your trip. Let's try another.")
+        bridgeport_get_attract()
+
+def leevining_get_attract():
+    leevining_attraction = leevining_attract_random()
+    leevining_attraction_answer = input(f"How about ....{leevining_attraction}? Enter  y/n?  ")
+    if leevining_attraction_answer == "y":
+        print("YAY! Let's find somewhere to eat!")
+    elif leevining_attraction_answer == "n":
+        print("Alright,it's your trip. Let's try another.")
+        leevining_get_attract()
+
+def lone_get_attract():
+    lone_attraction = lone_attract_random()
+    lone_attraction_answer = input(f"How about ....{lone_attraction}? Enter  y/n?  ")
+    if lone_attraction_answer == "y":
+        print("YAY! Let's find somewhere to eat!")
+    elif lone_attraction_answer == "n":
+        print("Alright,it's your trip. Let's try another.")
+        lone_get_attract()
+
+
+
+
+
+
+
+
+
+
+
+
 welcome()
+get_destination()
 
 
-def confirm_destination(final_destination):
-    user_answer = input(f"How does spending the day in {final_destination} sound? Enter yes/no ") 
-    if user_answer == "yes" or "Yes":
-        print("Great, let's pick something to do!")
-    elif user_answer == "no" or "No":
-        print( "Ok.. let's look for somewhere else")
-    else print("Try again!")
 
-confirm_destination(final_destination)
+
+# def confirm_destination(final_destination):
+#     user_answer = input(f"How does spending the day in {final_destination} sound? Enter yes/no ") 
+#     if user_answer == "yes" or "Yes":
+#         print("Great, let's pick something to do!")
+#     elif user_answer == "no" or "No":
+#         print( "Ok.. let's look for somewhere else")
+#     else print("Try again!")
+
+# confirm_destination(final_destination)

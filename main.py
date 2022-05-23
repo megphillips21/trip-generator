@@ -87,6 +87,7 @@ def get_destination():
     elif dest_answer == "n":
         print("Too Bad! We can pick another..")
         get_destination()
+    return destination_result
 
 def get_attraction(destination_result):
     if destination_result == "Mammoth":
@@ -147,18 +148,67 @@ def lone_get_attract():
         lone_get_attract()
 
 
+def get_resturant(destination_result):
+    if destination_result == "Mammoth":
+      mammoth_get_food()
+    elif destination_result == "Bishop":
+        bish_get_food()
+    elif destination_result == "Bridgeport":
+        bridgeport_get_food()
+    elif destination_result == "Lee Vining":
+        leevining_get_food()
+    elif destination_result == "Lone Pine":
+        lone_get_food()
+
+def mammoth_get_food():
+    mammoth_food = mammoth_food_random()
+    mammoth_food_answer = input(f"Does {mammoth_food} sound good? Enter y/n? ")
+    if mammoth_food_answer == "y":
+        print("That does sound yummy! Let's cover transportation!")
+    elif mammoth_food_answer == "n":
+        print("Bummer, sounded yummy to me.. How about we pick another?")
+        mammoth_get_food()
+
+def bishop_get_food():
+    bishop_food = bishop_food_random()
+    bishop_food_answer = input(f"Does {bishop_food} sound good? Enter y/n? ")
+    if bishop_food_answer == "y":
+        print("That does sound yummy! Let's cover transportation!")
+    elif bishop_food_answer == "n":
+        print("Bummer, sounded yummy to me.. How about we pick another?")
+        bishop_get_food()
+
+def leevining_get_food():
+    leevining_food = leevining_food_random()
+    leevining_food_answer = input(f"Does {leevining_food} sound good? Enter y/n? ")
+    if leevining_food_answer == "y":
+        print("That does sound yummy! Let's cover transportation!")
+    elif leevining_food_answer == "n":
+        print("Bummer, sounded yummy to me.. How about we pick another?")
+        leevining_get_food()
 
 
+def bridgeport_get_food():
+    bridgeport_food = bridgeport_food_random()
+    bridgeport_food_answer = input(f"Does {bridgeport_food} sound good? Enter y/n? ")
+    if bridgeport_food_answer == "y":
+        print("That does sound yummy! Let's cover transportation!")
+    elif bridgeport_food_answer == "n":
+        print("Bummer, sounded yummy to me.. How about we pick another?")
+        bridgeport_get_food()
 
-
-
-
-
-
-
+def lone_get_food():
+    lone_food = bishop_food_random()
+    lone_food_answer = input(f"Does {lone_food} sound good? Enter y/n? ")
+    if lone_food_answer == "y":
+        print("That does sound yummy! Let's cover transportation!")
+    elif lone_food_answer == "n":
+        print("Bummer, sounded yummy to me.. How about we pick another?")
+        bishop_get_food()
 
 welcome()
-get_destination()
+destination_result= get_destination()
+get_attraction(destination_result)
 
 
 

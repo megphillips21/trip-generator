@@ -25,17 +25,17 @@ bridgeport_attacts_list = ["Visit Bodie Ghost Town", "Fly fish on the River", "G
 leevining_rests_list = ["Mono Cone", "Mobile Mart", "Mono Inn", "Tioga Resort", "Brine Shrimp Factory"]
 leevining_attracts_list = ["Mono Lake", "Yosemite National Park", "Inyo Craters", "Visit the Sand Tuffas", "Double Eagle Spa"]
 
+# welcome function 
 def welcome ():
     print("              ")
     print("Welcome to the Eastern Sierra, lets create a day of adventure!")
     print("First let's pick your destination!")
 
-
+# Functions to make random choice from each list
 def destination_random ():
     destination_result = random.choice(destinations_list)
     return destination_result
     
-
 def transportation_random ():
     transportation_result = random.choice(transporations_list)
     return transportation_result
@@ -80,6 +80,7 @@ def leevining_food_random():
     leevining_food_result = random.choice(leevining_rests_list)
     return leevining_food_result
 
+# Function to determine the destination and confirm with user.
 def get_destination():
     destination_result = destination_random()
     dest_answer = input(f"How would you like to spend the day in {destination_result}? Enter y/n?  ")
@@ -90,7 +91,7 @@ def get_destination():
         print("Too Bad! We can pick another..")
         return get_destination()
     
-
+#Function to determine the which attraction function should run based on destination.  
 def get_attraction(destination_result):
     if destination_result == "Mammoth":
         attraction = mammoth_get_attract()
@@ -108,8 +109,9 @@ def get_attraction(destination_result):
         attraction = lone_get_attract()
         return attraction
    
-   
-    
+ 
+ # Below are attraction functions for each destination. It will determine a random choice and confirm with user. 
+ # Mammoth attraction function
 def mammoth_get_attract():
     attraction = mammoth_attract_random()
     mammoth_attraction_answer = input(f"How about ....{attraction}? Enter y/n?  ")
@@ -120,7 +122,7 @@ def mammoth_get_attract():
         print("Alright,it's your trip. Let's try another.")
         return mammoth_get_attract()
     
-
+#Bishop attraction function
 def bish_get_attract():
     attraction = bishop_attract_random()
     bishop_attraction_answer = input(f"How about ....{attraction}? Enter  y/n?  ")
@@ -131,7 +133,7 @@ def bish_get_attract():
         print("Alright,it's your trip. Let's try another.")
         return bish_get_attract()
     
-
+# Bridgeport attraction function
 def bridgeport_get_attract():
     attraction = bridgeport_attract_random()
     bridgeport_attraction_answer = input(f"How about ....{attraction}? Enter y/n?  ")
@@ -142,7 +144,7 @@ def bridgeport_get_attract():
         print("Alright,it's your trip. Let's try another.")
         return bridgeport_get_attract()
     
-
+# Lee Vining attraction function
 def leevining_get_attract():
     attraction = leevining_attract_random()
     leevining_attraction_answer = input(f"How about ....{attraction}? Enter  y/n?  ")
@@ -153,7 +155,7 @@ def leevining_get_attract():
         print("Alright,it's your trip. Let's try another.")
         return leevining_get_attract()
     
-
+#  Lone Pine attraction function
 def lone_get_attract():
     attraction = lone_attract_random()
     lone_attraction_answer = input(f"How about ....{attraction}? Enter  y/n?  ")
@@ -164,31 +166,25 @@ def lone_get_attract():
         print("Alright,it's your trip. Let's try another.")
         return lone_get_attract()
     
-
-
+# Function that determines which resturant function to run by destination
 def get_resturant(destination_result):
     if destination_result == "Mammoth":
      food = mammoth_get_food()
-     return food
-       
+     return food    
     elif destination_result == "Bishop":
       food = bishop_get_food()
-      return food
-        
+      return food    
     elif destination_result == "Bridgeport":
      food = bridgeport_get_food()
-     return food
-       
+     return food   
     elif destination_result == "Lee Vining":
        food = leevining_get_food()
-       return food
-        
+       return food  
     elif destination_result == "Lone Pine":
        food =  lone_get_food()
        return food
         
-
-
+# Functions for resturant random choice by destination.
 def mammoth_get_food():
     food = mammoth_food_random()
     mammoth_food_answer = input(f"Does {food} sound good? Enter y/n? ")
@@ -243,7 +239,7 @@ def lone_get_food():
         print("Bummer, sounded yummy to me.. How about we pick another?")
         return lone_get_food()
     
-
+# Function to get mode of transportation and confirm with user. 
 def get_transportation():
     transportation = transportation_random()
     transportation_answer = input(f"Transportation for your day trip is ...{transportation}. Does that sound good? Enter y/n? ")
@@ -254,13 +250,13 @@ def get_transportation():
         print("No worries, let's try again!")
         return get_transportation()
     
-
+# Function to display final trip details. 
 def final_trip ():
     print("                      ")
     print(f"Your day to is all set! You are visiting {destination_result}. You will travel by {transportation} to {attraction}, and eat at {food}. We hope you enjoy the Eastern Sierra! WATCH OUT FOR BEARS!")
 
 
-
+# Function calls
 welcome()
 destination_result= get_destination()
 attraction= get_attraction(destination_result)

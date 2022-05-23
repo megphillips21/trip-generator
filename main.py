@@ -1,6 +1,6 @@
-from ast import Return
+
 import random
-from tkinter import N
+
 
 destinations_list = ["Mammoth","Bishop","Lone Pine","Bridgeport", "Lee Vining"]
 transporations_list = ["Car","Tour Bus","Horse", "Town Trolley", "Bicycle"]
